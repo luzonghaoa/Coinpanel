@@ -5,6 +5,10 @@ MAINTAINER zh_l "luzonghaoa@gmail.com"
 RUN apt-get update -y && \
 apt-get install -y python3-pip python3-dev
 
+RUN apt-get install -y postgresql postgresql-contrib
+
+RUN postgres -c "createdb coin_panel_test"
+
 COPY ./requirements.txt /requirements.txt
 
 WORKDIR /
